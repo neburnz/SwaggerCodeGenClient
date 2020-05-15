@@ -179,7 +179,7 @@ namespace WebApi.Api
         /// </summary>
         /// <exception cref="WebApi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;WeatherForecast&gt;</returns>
-        public List<WeatherclearForecast> WeatherForecastGet ()
+        public List<WeatherForecast> WeatherForecastGet ()
         {
              ApiResponse<List<WeatherForecast>> localVarResponse = WeatherForecastGetWithHttpInfo();
              return localVarResponse.Data;
