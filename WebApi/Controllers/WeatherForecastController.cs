@@ -35,5 +35,11 @@ namespace WebApi.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public string Post([FromBody] string data)
+        {
+            return data.ToUpper();
+        }
     }
 }
