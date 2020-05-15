@@ -53,7 +53,8 @@ namespace WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1");
             });
 
-            app.UseHttpsRedirection();
+            // Disable HTTPS redirection
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
