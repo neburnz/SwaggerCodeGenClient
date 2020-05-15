@@ -114,7 +114,7 @@ namespace WebApi.Client
         public Configuration()
         {
             UserAgent = "Swagger-Codegen/1.0.0/csharp";
-            BasePath = "/";
+            BasePath = "http://localhost:5000/"; // FIX: https://github.com/restsharp/RestSharp/issues/775
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
