@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
+using Polly;
 using RestSharp;
 
 namespace WebApi.Client
@@ -174,7 +175,15 @@ namespace WebApi.Client
             RestClient.UserAgent = Configuration.UserAgent;
 
             InterceptRequest(request);
-            var response = RestClient.Execute(request);
+            // Add policy
+            var policy = Policy
+                .HandleResult<IRestResponse>(r => r.ResponseStatus == ResponseStatus.Error)
+                .Retry(3);
+            var response = policy.Execute(() =>  
+            { 
+                // Executes actual code
+                return RestClient.Execute(request); 
+            });
             InterceptResponse(request, response);
 
             return (Object) response;
